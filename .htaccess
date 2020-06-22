@@ -1,0 +1,131 @@
+Options -Indexes 
+ErrorDocument 404 /404.php
+
+
+
+php_value mbstring.func_overload 2
+php_value mbstring.internal_encoding UTF-8
+
+<IfModule mod_php5.c>
+  php_flag session.use_trans_sid off
+  #php_flag default_charset UTF-8
+  #php_value display_errors 1
+</IfModule>
+
+<IfModule mod_php7.c>
+  php_flag session.use_trans_sid off
+  #php_flag default_charset UTF-8
+  #php_value display_errors 1
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  Options +FollowSymLinks
+  RewriteEngine On
+			
+	# ASPRO_ROBOTS Serve robots.txt with robots.php only if the latter exists
+	RewriteCond %{REQUEST_FILENAME} robots.txt
+	RewriteCond %{DOCUMENT_ROOT}/robots.php -f
+	RewriteRule ^(.*)$ /robots.php [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-l
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !/bitrix/urlrewrite.php$
+  RewriteRule ^(.*)$ /bitrix/urlrewrite.php [L]
+  RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization}]
+</IfModule>
+
+<IfModule mod_dir.c>
+  DirectoryIndex index.php index.html
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive on
+  ExpiresByType image/jpeg "access plus 3 day"
+  ExpiresByType image/gif "access plus 3 day"
+  ExpiresByType image/png "access plus 3 day"
+  ExpiresByType text/css "access plus 3 day"
+  ExpiresByType application/javascript "access plus 3 day"  
+</IfModule>
+
+
+#RewriteEngine On
+#RewriteCond %{SERVER_PORT} !^443$
+#RewriteRule .* https://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]
+
+
+#Редиректисо страниц старого сайта
+
+Redirect 302 /turizm/tovary-dlya-piknika/sumka-dlya-mangala-s-napolneniem-drive-11-predmetov-1-7406-kupit /catalog/avtoaksessuary/brend_drive/_nabory_dlya_piknika/2186/
+Redirect 302 /turizm/tovary-dlya-piknika/fartuk-dlya-barbekyu-s-napolneniem-drive-7-predmetov-1-7405-kupit /catalog/avtoaksessuary/brend_drive/_nabory_dlya_piknika/2673/
+
+Redirect 302 /zazhigalki/manufacturer/zippo /catalog/turizm_i_otdykh/zazhigalki/zazhigalki_zippo/
+Redirect 302 /zazhigalki /catalog/turizm_i_otdykh/zazhigalki/
+Redirect 302 /avtokhimiya/sostavy-suprotec/suprotek-silikonovyj-vosk-sa-100-150-ml-kupit /
+
+Redirect 302 /podarki/organajzer-v-bagazhnik-drive-maxi-s-logotipom-avtomobilya-7408-kupit /catalog/avtoaksessuary/brend_drive/organayzery_drive_v_sbore/
+Redirect 302 /podarki /catalog/podarochnye_nabory/
+
+Redirect 302 /aksessuary/pledy/pled-avtomobilnyj-kia-kupit /catalog/avtoaksessuary/brend_drive/podushki_pledy_podgolovniki/pledy_v_chekhle/2435/
+Redirect 302 /aksessuary/podushki/podushka-iz-eko-kozhi-toyota-kupit /catalog/avtoaksessuary/brend_drive/podushki_pledy_podgolovniki/podushki_ekokozha/2584/
+
+Redirect 302 /aktsii/10-karta-skidok-postoyannogo-klienta /sale/skidochnaya_karta_pri_pokupke_osago/
+Redirect 302 /aktsii /sale/
+
+Redirect 302 /elektronika/radar-detektory /catalog/avtoaksessuary/elektronika/radar_detektory/
+Redirect 302 /elektronika/videoregistratory/videoregistratory-sho-me/ /catalog/avtoaksessuary/elektronika/videoregistratory/
+Redirect 302 /elektronika/fm-transmittery/fm-transmitter-neoline-rave-fm-kupit /catalog/avtoaksessuary/elektronika/fm_transmittery/1726/
+Redirect 302 /elektronika/videoregistratory/videoregistratory-mio-mivue/ /catalog/avtoaksessuary/elektronika/videoregistratory/
+Redirect 302 /elektronika/videoregistratory/videoregistratory-sho-me/ /catalog/avtoaksessuary/elektronika/videoregistratory/
+Redirect 302 /elektronika/videoregistratory /catalog/avtoaksessuary/elektronika/videoregistratory/
+Redirect 302 /elektronika/kombo-ustrojstva /catalog/avtoaksessuary/elektronika/kombo_ustroystva/
+Redirect 302 /elektronika /catalog/avtoaksessuary/elektronika/
+
+Redirect 302 /pnevmaticheskie-pistolety/pistolety/pnevmaticheskij-pistolet-gletcher-grach-nbb-4-2c5-mm-kupit /catalog/turizm_i_otdykh/pnevmaticheskie_pistolety/2459/
+Redirect 302 /pnevmaticheskie-pistolety/pistolety/pnevmaticheskij-pistolet-gletcher-glsn51-4-2c5-mm-kupit /catalog/turizm_i_otdykh/pnevmaticheskie_pistolety/2464/
+Redirect 302 /pnevmaticheskie-pistolety/aksessuary-dlya-pistoletov/magazin-dlya-pistoleta-stalker-s1911g-t-i-s84-kupit /catalog/turizm_i_otdykh/pnevmaticheskie_pistolety/aksessuary_dlya_pnevmatiki/
+Redirect 302 /pnevmaticheskie-pistolety/pistolety/pnevmaticheskij-pistolet-gletcher-parabellum-4-2c5-mm-kupit /catalog/turizm_i_otdykh/pnevmaticheskie_pistolety/
+Redirect 302 /pnevmaticheskie-pistolety/pistolety/pnevmaticheskij-pistolet-revolver-gletcher-ngt-silver-4-2c5-mm-kupit /catalog/turizm_i_otdykh/pnevmaticheskie_pistolety/
+Redirect 302 /pnevmaticheskie-pistolety/aksessuary-dlya-pistoletov/drob-shariki-2c-puli-bb-gletcher-500sht-kupit /catalog/turizm_i_otdykh/pnevmaticheskie_pistolety/aksessuary_dlya_pnevmatiki/2027/
+Redirect 302 /pnevmaticheskie-pistolety/aksessuary-dlya-pistoletov/magazin-dlya-pistoleta-stalker-s92pl-me-kupit /catalog/turizm_i_otdykh/pnevmaticheskie_pistolety/aksessuary_dlya_pnevmatiki/
+Redirect 302 /pnevmaticheskie-pistolety/pistolety/pnevmaticheskij-pistolet-gletcher-clt-1911-4-2c5-mm-6857-kupit /catalog/turizm_i_otdykh/pnevmaticheskie_pistolety/
+Redirect 302 /pnevmaticheskie-pistolety/pistolety /catalog/turizm_i_otdykh/pnevmaticheskie_pistolety/
+
+
+Redirect 302 /product-drive/organajzery-drive/organajzer-v-bagazhnik-drive-base-s-logotipom-avtomobilya-kupit /catalog/avtoaksessuary/brend_drive/organayzery_drive_v_sbore/
+Redirect 302 /product-drive/organajzery-drive/organajzer-v-bagazhnik-drive-standard-s-logotipom-avtomobilya-1-kupit /catalog/avtoaksessuary/brend_drive/organayzery_drive_v_sbore/
+Redirect 302 /product-drive/organajzery-drive /catalog/avtoaksessuary/brend_drive/organayzery_drive_v_sbore/
+Redirect 302 /product-drive/nabory-dlya-piknika-drive/sumka-dlya-mangala-s-napolneniem-drive-11-predmetov-1-7406-kupit /catalog/avtoaksessuary/brend_drive/_nabory_dlya_piknika/
+Redirect 302 /product-drive/nabory-dlya-piknika-drive /catalog/avtoaksessuary/brend_drive/_nabory_dlya_piknika/
+
+Redirect 302 /product-drive/pledy-avtomobilnyj-drive/pled-avtomobilnyj-bmw-kupit /catalog/avtoaksessuary/brend_drive/podushki_pledy_podgolovniki/pledy_v_chekhle/2423/
+Redirect 302 /product-drive/pledy-avtomobilnyj-drive/pled-avtomobilnyj-skoda-kupit /catalog/avtoaksessuary/brend_drive/podushki_pledy_podgolovniki/pledy_v_chekhle/2448/
+Redirect 302 /product-drive/pledy-avtomobilnyj-drive/pled-avtomobilnyj-toyota-kupit /catalog/avtoaksessuary/brend_drive/podushki_pledy_podgolovniki/pledy_v_chekhle/2452/
+Redirect 302 /product-drive/pledy-avtomobilnyj-drive/pled-audi-1-kupit /catalog/avtoaksessuary/brend_drive/podushki_pledy_podgolovniki/pledy_v_chekhle/2422/
+Redirect 302 /product-drive/pledy-avtomobilnyj-drive/pled-avtomobilnyj-hyundai-kupit /catalog/avtoaksessuary/brend_drive/podushki_pledy_podgolovniki/pledy_v_chekhle/2432/
+Redirect 302 /product-drive/pledy-avtomobilnyj-drive/pled-avtomobilnyj-renault-kupit /catalog/avtoaksessuary/brend_drive/podushki_pledy_podgolovniki/pledy_v_chekhle/2447/
+Redirect 302 /product-drive/pledy-avtomobilnyj-drive/pled-avtomobilnyj-volkswagen-kupit /catalog/avtoaksessuary/brend_drive/podushki_pledy_podgolovniki/pledy_v_chekhle/2453/
+Redirect 302 /product-drive/podushki-podgolovniki-velyur-drive /catalog/avtoaksessuary/brend_drive/podushki_pledy_podgolovniki/podushki_ortopedicheskie/1112/
+Redirect 302 /product-drive/podushki-podgolovniki-drive/podushka-podgolovnik-iz-eko-kozhi-hyundai-kupit /catalog/avtoaksessuary/brend_drive/podushki_pledy_podgolovniki/podushki_ekokozha/2565/
+Redirect 302 /product-drive/podushki-podgolovniki-drive /catalog/avtoaksessuary/brend_drive/podushki_pledy_podgolovniki/
+Redirect 302 /product-drive /catalog/avtoaksessuary/brend_drive/
+
+Redirect 302 /turizm/tovary-dlya-piknika/gazovyj-ballonchik-220-ml-kupit /catalog/avtoaksessuary/sezonnye_tovary/
+Redirect 302 /turizm/ /catalog/avtoaksessuary/sezonnye_tovary/
+
+Redirect 302 /vetroviki/vetroviki-na-okna/deflektory-dlya-hyundai/ /
+Redirect 302 /o-kompanii /company/
+Redirect 302 /kontakty /contacts/
+Redirect 302 /publichnaya-oferta-na-priobretenie-tovarov /include/offer.php
+
+
+#RewriteEngine On
+#RewriteCond %{HTTPS} =off
+#RewriteCond %{REQUEST_URI} !^/test.php
+#RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [QSA,L]
+
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteCond %{REQUEST_URI} !robots.txt
+RewriteCond %{REQUEST_URI} !^/bitrix/admin/1c_exchange.php
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=302]

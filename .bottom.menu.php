@@ -1,0 +1,32 @@
+<?
+$aMenuLinks = Array(
+	Array(
+		"Каталог", 
+		"/catalog/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Автоаксессуары", 
+		"/catalog/avtoaksessuary/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Кожгалантерея", 
+		"/catalog/kozhgalantereya/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Туризм и отдых", 
+		"/catalog/turizm_i_otdykh/", 
+		Array(), 
+		Array(), 
+		"" 
+	)
+);
+?>
